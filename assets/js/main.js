@@ -11,22 +11,13 @@
   const counter = document.getElementById( "cart-counter" )
   let count = 1
   plusAdd.addEventListener("click", e => {
-    
-    
     counter.innerHTML = count++ 
-  
   })
   plusAdd1.addEventListener("click", e => {
-    
-    
     counter.innerHTML = count++ 
-  
   })
-  plusAdd2.addEventListener("click", e => {
-    
-    
+  plusAdd2.addEventListener("click", e => { 
     counter.innerHTML = count++ 
-  
   })
   
   const darkThemeChange = () => {

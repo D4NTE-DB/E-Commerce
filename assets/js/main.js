@@ -5,19 +5,28 @@
   const cartBtnOpen = document.getElementById( "cart-btn" )
   const cartBtnClose = document.getElementById( "close-cart" )
   const cartContainer = document.getElementById( "cart-container" )
-  let plusAdd = document.getElementById( "plus-add" )
+  const plusAdd = document.getElementById( "plus-add" )
   const plusAdd1 = document.getElementById( "plus-add1" )
   const plusAdd2 = document.getElementById( "plus-add2" )
   const counter = document.getElementById( "cart-counter" )
   let count = 1
   plusAdd.addEventListener("click", e => {
+    
+    
     counter.innerHTML = count++ 
+    
   })
   plusAdd1.addEventListener("click", e => {
+    
+    
     counter.innerHTML = count++ 
+  
   })
-  plusAdd2.addEventListener("click", e => { 
+  plusAdd2.addEventListener("click", e => {
+    
+    
     counter.innerHTML = count++ 
+  
   })
   
   const darkThemeChange = () => {
@@ -64,9 +73,10 @@
     ]
   
     const cartProducts = []
-  
+    let countersk, countersk1, countersk2 = 0;
     plusAdd.addEventListener("click", e=> {
       addProduct(1)
+      
     })
     plusAdd1.addEventListener("click", e=> {
       addProduct(2)
@@ -104,14 +114,21 @@
   
       let fragment = ""
       cartProducts.forEach( product => {
-          fragment += `
-          <div class="product1">
+          
+        fragment += `
+          <div class="product">
+          <i class='bx bxs-x-circle bx-sm' ></i>
           <img src="${product.image}" alt="">
           <div class="info-container">
           <h2>${product.name}</h2>
-          <h3>${product.price}</h3>
-          <h4>Item ID ${product.id} </h4>
-          <svg class="plus-add2" id="plus-add2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4z"/><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/></svg>
+          <h3>$${product.price}</h3>
+          <h4>Stock:${product.quantity - count + 1}</h4>
+          <h4>Item ID: ${product.id} </h4>
+          <div id = "minus">
+          <i class='bx bx-plus-circle'></i>
+          <div>Cantidad: ${count - 1}</div>
+          <i class='bx bx-minus-circle'></i>
+          </div>
           </div>
           </div>
           `
